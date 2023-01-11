@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-var abc;
 var startCheck;
 var reportCheck;
 
@@ -59,6 +58,7 @@ const Homepage = () => {
   const [curRoute, setCurRoute] = useState("");
   const [curSpeed, setCurSpeed] = useState("");
   const [busCount, setBusCount] = useState("");
+  const [stopped, setStopped] = useState(false);
   const [data, setData] = useState([]);
   const [newData, setNewData] = useState([]);
 
@@ -70,7 +70,6 @@ const Homepage = () => {
     setData(response.data);
     setBusCount(response.data.length);
     setCurRoute(route);
-    abc = 1;
     startCheck = 1;
     reportCheck = 0;
   };
@@ -91,7 +90,9 @@ const Homepage = () => {
     reportCheck = 1;
   };
 
-  const stopPressed = () => {};
+  const stopPressed = () => {
+    setStopped(true);
+  };
 
   console.log(data);
   console.log(newData);
